@@ -14,7 +14,7 @@ body {
 nav {
     background: #333;
     margin: 0 auto;
-    display: flx
+    display: flex;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -106,7 +106,7 @@ h2, h3 {
   font-size: 1.1rem;
   font-weight: 500;
   background: #fff;
-  border: 1px solid #e00e0;
+  border: 1px solid #000000;
   border-radius: 12px;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
