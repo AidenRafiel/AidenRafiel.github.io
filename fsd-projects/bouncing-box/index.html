@@ -9,7 +9,6 @@
     .box {
       width: 70px;
       height: 70px;
-      background-color: blue;
       font-size: 300%;
       text-align: center;
       user-select: none;
@@ -83,6 +82,7 @@
       var positionY = 0;
       var speedY = 6;
       var boardClicks = 0;
+      var speedMultiply = 3
 
 
 
@@ -100,15 +100,18 @@
         if (positionX < 0) {
           speedX *= -1
         }
+       
         positionY += speedY;
 
         if (positionY > boardHeight) {
           speedY *= -1
         }
+
         if (positionY < 0) {
           speedY *= -1
         }
         moveBoxTo(positionX, positionY);
+
       }
 
       /**
@@ -122,12 +125,18 @@
         positionX = 0;
         points++;
         changeBoxText(points);
-        speed += 3
+
+         if (points % 3 === 0) {
+          speedX = points * speedMultiply;
+          speedY = points * speedMultiply;
+        }
+
+        // speed += 3
       }
       function handleBoardClicks() {
         boardClicks += 1;
-        if (boardClicks - points >= 10) {
-          alert("GAME OVER! You misclicked 10 times!"); 
+        if (boardClicks - points >= 20) {
+          alert("GAME OVER! You misclicked 20 times!"); 
           endGame();
         }
       }
